@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "message_ts": {
+            "type": "number"
+        },
+        "channel": {
+            "type": "string"
+        }
+    }
+}

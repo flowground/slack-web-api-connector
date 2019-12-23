@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "channel": {
+                    "description": "MPIM to close.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

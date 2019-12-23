@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "file_comment": {
+                    "description": "File comment to pin.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Timestamp of the message to pin.",
+                    "type": "number"
+                },
+                "file": {
+                    "description": "File to pin.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel to pin the item in.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Reaction (emoji) name.",
+                    "type": "string"
+                },
+                "file_comment": {
+                    "description": "File comment to add reaction to. Now that [file threads](/changelog/2018-05-file-threads-soon-tread#whats_changed) work the way you'd expect, this argument is deprecated. Specify the timestamp and channel of the message associated with a file instead.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Timestamp of the message to add reaction to.",
+                    "type": "number"
+                },
+                "file": {
+                    "description": "File to add reaction to. Now that [file threads](/changelog/2018-05-file-threads-soon-tread#whats_changed) work the way you'd expect, this argument is deprecated. Specify the timestamp and channel of the message associated with a file instead.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel where the message to add reaction to was posted.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

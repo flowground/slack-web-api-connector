@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "user_ids": {
+                    "description": "**Required** for workspace apps. A list of between 1 and 30 human users that will be added to the newly-created conversation. This argument has no effect when used by classic Slack apps.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "Name of the public or private channel to create",
+                    "type": "string"
+                },
+                "is_private": {
+                    "description": "Create a private channel instead of a public one",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

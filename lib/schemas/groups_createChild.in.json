@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "description": "Authentication token. Requires scope: `groups:write`",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Private channel to clone and archive.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

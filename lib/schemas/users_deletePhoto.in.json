@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "token": {
+                    "description": "Authentication token. Requires scope: `users.profile:write`",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,2481 @@
+{
+    "title": "Slack Web API",
+    "description": "One way to interact with the Slack platform is its HTTP RPC-based Web API, a collection of methods requiring OAuth 2.0-based user, bot, or workspace tokens blessed with related OAuth scopes.",
+    "docsUrl": "https://api.slack.com/web",
+    "url": "https://slack.com/api",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://slack.com/api",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth2": {
+                "label": "slackAuth",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://slack.com/oauth/authorize",
+            "token_uri": "https://slack.com/api/oauth.access",
+            "scopes": [
+                "admin",
+                "admin.users:write",
+                "bot",
+                "channels:history",
+                "channels:read",
+                "channels:write",
+                "chat:write",
+                "chat:write:bot",
+                "chat:write:user",
+                "conversations:history",
+                "conversations:read",
+                "conversations:write",
+                "dnd:read",
+                "dnd:write",
+                "emoji:read",
+                "files:read",
+                "files:write:user",
+                "groups:history",
+                "groups:read",
+                "groups:write",
+                "identity.basic",
+                "im:history",
+                "im:read",
+                "im:write",
+                "links:write",
+                "mpim:history",
+                "mpim:read",
+                "mpim:write",
+                "none",
+                "pins:read",
+                "pins:write",
+                "reactions:read",
+                "reactions:write",
+                "reminders:read",
+                "reminders:write",
+                "rtm:stream",
+                "search:read",
+                "stars:read",
+                "stars:write",
+                "team:read",
+                "tokens.basic",
+                "usergroups:read",
+                "usergroups:write",
+                "users.profile:read",
+                "users.profile:write",
+                "users:read",
+                "users:read.email",
+                "users:write"
+            ]
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "admin_users_session_reset": {
+            "main": "./lib/actions/admin_users_session_reset.js",
+            "title": "admin_users_session_reset",
+            "description": "Wipes all valid sessions on all devices for a given user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/admin_users_session_reset.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "api_test": {
+            "main": "./lib/actions/api_test.js",
+            "title": "api_test",
+            "description": "Checks API calling code.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/api_test.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_info": {
+            "main": "./lib/actions/apps_permissions_info.js",
+            "title": "apps_permissions_info",
+            "description": "Returns list of permissions this app has on a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_request": {
+            "main": "./lib/actions/apps_permissions_request.js",
+            "title": "apps_permissions_request",
+            "description": "Allows an app to request additional scopes",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_request.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_resources_list": {
+            "main": "./lib/actions/apps_permissions_resources_list.js",
+            "title": "apps_permissions_resources_list",
+            "description": "Returns list of resource grants this app has on a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_resources_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_scopes_list": {
+            "main": "./lib/actions/apps_permissions_scopes_list.js",
+            "title": "apps_permissions_scopes_list",
+            "description": "Returns list of scopes this app has on a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_scopes_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_users_list": {
+            "main": "./lib/actions/apps_permissions_users_list.js",
+            "title": "apps_permissions_users_list",
+            "description": "Returns list of user grants and corresponding scopes this app has on a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_users_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_permissions_users_request": {
+            "main": "./lib/actions/apps_permissions_users_request.js",
+            "title": "apps_permissions_users_request",
+            "description": "Enables an app to trigger a permissions modal to grant an app access to a user access scope.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_permissions_users_request.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "apps_uninstall": {
+            "main": "./lib/actions/apps_uninstall.js",
+            "title": "apps_uninstall",
+            "description": "Uninstalls your app from a workspace.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/apps_uninstall.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "auth_revoke": {
+            "main": "./lib/actions/auth_revoke.js",
+            "title": "auth_revoke",
+            "description": "Revokes a token.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_revoke.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "auth_test": {
+            "main": "./lib/actions/auth_test.js",
+            "title": "auth_test",
+            "description": "Checks authentication & identity.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/auth_test.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "bots_info": {
+            "main": "./lib/actions/bots_info.js",
+            "title": "bots_info",
+            "description": "Gets information about a bot user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/bots_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_archive": {
+            "main": "./lib/actions/channels_archive.js",
+            "title": "channels_archive",
+            "description": "Archives a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_archive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_create": {
+            "main": "./lib/actions/channels_create.js",
+            "title": "channels_create",
+            "description": "Creates a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_history": {
+            "main": "./lib/actions/channels_history.js",
+            "title": "channels_history",
+            "description": "Fetches history of messages and events from a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_history.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_info": {
+            "main": "./lib/actions/channels_info.js",
+            "title": "channels_info",
+            "description": "Gets information about a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_invite": {
+            "main": "./lib/actions/channels_invite.js",
+            "title": "channels_invite",
+            "description": "Invites a user to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_invite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_join": {
+            "main": "./lib/actions/channels_join.js",
+            "title": "channels_join",
+            "description": "Joins a channel, creating it if needed.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_join.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_kick": {
+            "main": "./lib/actions/channels_kick.js",
+            "title": "channels_kick",
+            "description": "Removes a user from a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_kick.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_leave": {
+            "main": "./lib/actions/channels_leave.js",
+            "title": "channels_leave",
+            "description": "Leaves a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_leave.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_list": {
+            "main": "./lib/actions/channels_list.js",
+            "title": "channels_list",
+            "description": "Lists all channels in a Slack team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_mark": {
+            "main": "./lib/actions/channels_mark.js",
+            "title": "channels_mark",
+            "description": "Sets the read cursor in a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_mark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_rename": {
+            "main": "./lib/actions/channels_rename.js",
+            "title": "channels_rename",
+            "description": "Renames a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_rename.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_replies": {
+            "main": "./lib/actions/channels_replies.js",
+            "title": "channels_replies",
+            "description": "Retrieve a thread of messages posted to a channel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_replies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_setPurpose": {
+            "main": "./lib/actions/channels_setPurpose.js",
+            "title": "channels_setPurpose",
+            "description": "Sets the purpose for a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_setPurpose.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_setTopic": {
+            "main": "./lib/actions/channels_setTopic.js",
+            "title": "channels_setTopic",
+            "description": "Sets the topic for a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_setTopic.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "channels_unarchive": {
+            "main": "./lib/actions/channels_unarchive.js",
+            "title": "channels_unarchive",
+            "description": "Unarchives a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/channels_unarchive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_delete": {
+            "main": "./lib/actions/chat_delete.js",
+            "title": "chat_delete",
+            "description": "Deletes a message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_deleteScheduledMessage": {
+            "main": "./lib/actions/chat_deleteScheduledMessage.js",
+            "title": "chat_deleteScheduledMessage",
+            "description": "Deletes a pending scheduled message from the queue.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_deleteScheduledMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_getPermalink": {
+            "main": "./lib/actions/chat_getPermalink.js",
+            "title": "chat_getPermalink",
+            "description": "Retrieve a permalink URL for a specific extant message",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_getPermalink.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_meMessage": {
+            "main": "./lib/actions/chat_meMessage.js",
+            "title": "chat_meMessage",
+            "description": "Share a me message into a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_meMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_postEphemeral": {
+            "main": "./lib/actions/chat_postEphemeral.js",
+            "title": "chat_postEphemeral",
+            "description": "Sends an ephemeral message to a user in a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_postEphemeral.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_postMessage": {
+            "main": "./lib/actions/chat_postMessage.js",
+            "title": "chat_postMessage",
+            "description": "Sends a message to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_postMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_scheduleMessage": {
+            "main": "./lib/actions/chat_scheduleMessage.js",
+            "title": "chat_scheduleMessage",
+            "description": "Schedules a message to be sent to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_scheduleMessage.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_scheduledMessages_list": {
+            "main": "./lib/actions/chat_scheduledMessages_list.js",
+            "title": "chat_scheduledMessages_list",
+            "description": "Returns a list of scheduled messages.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_scheduledMessages_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_unfurl": {
+            "main": "./lib/actions/chat_unfurl.js",
+            "title": "chat_unfurl",
+            "description": "Provide custom unfurl behavior for user-posted URLs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_unfurl.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "chat_update": {
+            "main": "./lib/actions/chat_update.js",
+            "title": "chat_update",
+            "description": "Updates a message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/chat_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_archive": {
+            "main": "./lib/actions/conversations_archive.js",
+            "title": "conversations_archive",
+            "description": "Archives a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_archive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_close": {
+            "main": "./lib/actions/conversations_close.js",
+            "title": "conversations_close",
+            "description": "Closes a direct message or multi-person direct message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_close.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_create": {
+            "main": "./lib/actions/conversations_create.js",
+            "title": "conversations_create",
+            "description": "Initiates a public or private channel-based conversation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_history": {
+            "main": "./lib/actions/conversations_history.js",
+            "title": "conversations_history",
+            "description": "Fetches a conversation's history of messages and events.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_history.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_info": {
+            "main": "./lib/actions/conversations_info.js",
+            "title": "conversations_info",
+            "description": "Retrieve information about a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_invite": {
+            "main": "./lib/actions/conversations_invite.js",
+            "title": "conversations_invite",
+            "description": "Invites users to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_invite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_join": {
+            "main": "./lib/actions/conversations_join.js",
+            "title": "conversations_join",
+            "description": "Joins an existing conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_join.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_kick": {
+            "main": "./lib/actions/conversations_kick.js",
+            "title": "conversations_kick",
+            "description": "Removes a user from a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_kick.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_leave": {
+            "main": "./lib/actions/conversations_leave.js",
+            "title": "conversations_leave",
+            "description": "Leaves a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_leave.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_list": {
+            "main": "./lib/actions/conversations_list.js",
+            "title": "conversations_list",
+            "description": "Lists all channels in a Slack team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_members": {
+            "main": "./lib/actions/conversations_members.js",
+            "title": "conversations_members",
+            "description": "Retrieve members of a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_members.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_open": {
+            "main": "./lib/actions/conversations_open.js",
+            "title": "conversations_open",
+            "description": "Opens or resumes a direct message or multi-person direct message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_open.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_rename": {
+            "main": "./lib/actions/conversations_rename.js",
+            "title": "conversations_rename",
+            "description": "Renames a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_rename.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_replies": {
+            "main": "./lib/actions/conversations_replies.js",
+            "title": "conversations_replies",
+            "description": "Retrieve a thread of messages posted to a conversation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_replies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_setPurpose": {
+            "main": "./lib/actions/conversations_setPurpose.js",
+            "title": "conversations_setPurpose",
+            "description": "Sets the purpose for a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_setPurpose.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_setTopic": {
+            "main": "./lib/actions/conversations_setTopic.js",
+            "title": "conversations_setTopic",
+            "description": "Sets the topic for a conversation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_setTopic.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "conversations_unarchive": {
+            "main": "./lib/actions/conversations_unarchive.js",
+            "title": "conversations_unarchive",
+            "description": "Reverses conversation archival.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/conversations_unarchive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dialog_open": {
+            "main": "./lib/actions/dialog_open.js",
+            "title": "dialog_open",
+            "description": "Open a dialog with a user",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dialog_open.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dnd_endDnd": {
+            "main": "./lib/actions/dnd_endDnd.js",
+            "title": "dnd_endDnd",
+            "description": "Ends the current user's Do Not Disturb session immediately.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dnd_endDnd.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dnd_endSnooze": {
+            "main": "./lib/actions/dnd_endSnooze.js",
+            "title": "dnd_endSnooze",
+            "description": "Ends the current user's snooze mode immediately.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dnd_endSnooze.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dnd_info": {
+            "main": "./lib/actions/dnd_info.js",
+            "title": "dnd_info",
+            "description": "Retrieves a user's current Do Not Disturb status.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dnd_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dnd_setSnooze": {
+            "main": "./lib/actions/dnd_setSnooze.js",
+            "title": "dnd_setSnooze",
+            "description": "Turns on Do Not Disturb mode for the current user, or changes its duration.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dnd_setSnooze.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "dnd_teamInfo": {
+            "main": "./lib/actions/dnd_teamInfo.js",
+            "title": "dnd_teamInfo",
+            "description": "Retrieves the Do Not Disturb status for up to 50 users on a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/dnd_teamInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "emoji_list": {
+            "main": "./lib/actions/emoji_list.js",
+            "title": "emoji_list",
+            "description": "Lists custom emoji for a team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/emoji_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_comments_delete": {
+            "main": "./lib/actions/files_comments_delete.js",
+            "title": "files_comments_delete",
+            "description": "Deletes an existing comment on a file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_comments_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_delete": {
+            "main": "./lib/actions/files_delete.js",
+            "title": "files_delete",
+            "description": "Deletes a file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_info": {
+            "main": "./lib/actions/files_info.js",
+            "title": "files_info",
+            "description": "Gets information about a team file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_list": {
+            "main": "./lib/actions/files_list.js",
+            "title": "files_list",
+            "description": "Lists & filters team files.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_revokePublicURL": {
+            "main": "./lib/actions/files_revokePublicURL.js",
+            "title": "files_revokePublicURL",
+            "description": "Revokes public/external sharing access for a file",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_revokePublicURL.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_sharedPublicURL": {
+            "main": "./lib/actions/files_sharedPublicURL.js",
+            "title": "files_sharedPublicURL",
+            "description": "Enables a file for public/external sharing.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_sharedPublicURL.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "files_upload": {
+            "main": "./lib/actions/files_upload.js",
+            "title": "files_upload",
+            "description": "Uploads or creates a file.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/files_upload.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_archive": {
+            "main": "./lib/actions/groups_archive.js",
+            "title": "groups_archive",
+            "description": "Archives a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_archive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_create": {
+            "main": "./lib/actions/groups_create.js",
+            "title": "groups_create",
+            "description": "Creates a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_createChild": {
+            "main": "./lib/actions/groups_createChild.js",
+            "title": "groups_createChild",
+            "description": "Clones and archives a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_createChild.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_history": {
+            "main": "./lib/actions/groups_history.js",
+            "title": "groups_history",
+            "description": "Fetches history of messages and events from a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_history.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_info": {
+            "main": "./lib/actions/groups_info.js",
+            "title": "groups_info",
+            "description": "Gets information about a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_invite": {
+            "main": "./lib/actions/groups_invite.js",
+            "title": "groups_invite",
+            "description": "Invites a user to a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_invite.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_kick": {
+            "main": "./lib/actions/groups_kick.js",
+            "title": "groups_kick",
+            "description": "Removes a user from a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_kick.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_leave": {
+            "main": "./lib/actions/groups_leave.js",
+            "title": "groups_leave",
+            "description": "Leaves a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_leave.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_list": {
+            "main": "./lib/actions/groups_list.js",
+            "title": "groups_list",
+            "description": "Lists private channels that the calling user has access to.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_mark": {
+            "main": "./lib/actions/groups_mark.js",
+            "title": "groups_mark",
+            "description": "Sets the read cursor in a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_mark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_open": {
+            "main": "./lib/actions/groups_open.js",
+            "title": "groups_open",
+            "description": "Opens a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_open.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_rename": {
+            "main": "./lib/actions/groups_rename.js",
+            "title": "groups_rename",
+            "description": "Renames a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_rename.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_replies": {
+            "main": "./lib/actions/groups_replies.js",
+            "title": "groups_replies",
+            "description": "Retrieve a thread of messages posted to a private channel",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_replies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_setPurpose": {
+            "main": "./lib/actions/groups_setPurpose.js",
+            "title": "groups_setPurpose",
+            "description": "Sets the purpose for a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_setPurpose.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_setTopic": {
+            "main": "./lib/actions/groups_setTopic.js",
+            "title": "groups_setTopic",
+            "description": "Sets the topic for a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_setTopic.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "groups_unarchive": {
+            "main": "./lib/actions/groups_unarchive.js",
+            "title": "groups_unarchive",
+            "description": "Unarchives a private channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/groups_unarchive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_close": {
+            "main": "./lib/actions/im_close.js",
+            "title": "im_close",
+            "description": "Close a direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_close.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_history": {
+            "main": "./lib/actions/im_history.js",
+            "title": "im_history",
+            "description": "Fetches history of messages and events from direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_history.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_list": {
+            "main": "./lib/actions/im_list.js",
+            "title": "im_list",
+            "description": "Lists direct message channels for the calling user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_mark": {
+            "main": "./lib/actions/im_mark.js",
+            "title": "im_mark",
+            "description": "Sets the read cursor in a direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_mark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_open": {
+            "main": "./lib/actions/im_open.js",
+            "title": "im_open",
+            "description": "Opens a direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_open.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "im_replies": {
+            "main": "./lib/actions/im_replies.js",
+            "title": "im_replies",
+            "description": "Retrieve a thread of messages posted to a direct message conversation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/im_replies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "migration_exchange": {
+            "main": "./lib/actions/migration_exchange.js",
+            "title": "migration_exchange",
+            "description": "For Enterprise Grid workspaces, map local user IDs to global user IDs",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/migration_exchange.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_close": {
+            "main": "./lib/actions/mpim_close.js",
+            "title": "mpim_close",
+            "description": "Closes a multiparty direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_close.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_history": {
+            "main": "./lib/actions/mpim_history.js",
+            "title": "mpim_history",
+            "description": "Fetches history of messages and events from a multiparty direct message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_history.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_list": {
+            "main": "./lib/actions/mpim_list.js",
+            "title": "mpim_list",
+            "description": "Lists multiparty direct message channels for the calling user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_mark": {
+            "main": "./lib/actions/mpim_mark.js",
+            "title": "mpim_mark",
+            "description": "Sets the read cursor in a multiparty direct message channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_mark.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_open": {
+            "main": "./lib/actions/mpim_open.js",
+            "title": "mpim_open",
+            "description": "This method opens a multiparty direct message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_open.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "mpim_replies": {
+            "main": "./lib/actions/mpim_replies.js",
+            "title": "mpim_replies",
+            "description": "Retrieve a thread of messages posted to a direct message conversation from a multiparty direct message.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/mpim_replies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_access": {
+            "main": "./lib/actions/oauth_access.js",
+            "title": "oauth_access",
+            "description": "Exchanges a temporary OAuth verifier code for an access token.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_access.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "oauth_token": {
+            "main": "./lib/actions/oauth_token.js",
+            "title": "oauth_token",
+            "description": "Exchanges a temporary OAuth verifier code for a workspace token.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/oauth_token.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "pins_add": {
+            "main": "./lib/actions/pins_add.js",
+            "title": "pins_add",
+            "description": "Pins an item to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/pins_add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "pins_list": {
+            "main": "./lib/actions/pins_list.js",
+            "title": "pins_list",
+            "description": "Lists items pinned to a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/pins_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "pins_remove": {
+            "main": "./lib/actions/pins_remove.js",
+            "title": "pins_remove",
+            "description": "Un-pins an item from a channel.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/pins_remove.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reactions_add": {
+            "main": "./lib/actions/reactions_add.js",
+            "title": "reactions_add",
+            "description": "Adds a reaction to an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reactions_add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reactions_get": {
+            "main": "./lib/actions/reactions_get.js",
+            "title": "reactions_get",
+            "description": "Gets reactions for an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reactions_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reactions_list": {
+            "main": "./lib/actions/reactions_list.js",
+            "title": "reactions_list",
+            "description": "Lists reactions made by a user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reactions_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reactions_remove": {
+            "main": "./lib/actions/reactions_remove.js",
+            "title": "reactions_remove",
+            "description": "Removes a reaction from an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reactions_remove.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reminders_add": {
+            "main": "./lib/actions/reminders_add.js",
+            "title": "reminders_add",
+            "description": "Creates a reminder.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reminders_add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reminders_complete": {
+            "main": "./lib/actions/reminders_complete.js",
+            "title": "reminders_complete",
+            "description": "Marks a reminder as complete.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reminders_complete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reminders_delete": {
+            "main": "./lib/actions/reminders_delete.js",
+            "title": "reminders_delete",
+            "description": "Deletes a reminder.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reminders_delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reminders_info": {
+            "main": "./lib/actions/reminders_info.js",
+            "title": "reminders_info",
+            "description": "Gets information about a reminder.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reminders_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "reminders_list": {
+            "main": "./lib/actions/reminders_list.js",
+            "title": "reminders_list",
+            "description": "Lists all reminders created by or for a given user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/reminders_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "rtm_connect": {
+            "main": "./lib/actions/rtm_connect.js",
+            "title": "rtm_connect",
+            "description": "Starts a Real Time Messaging session.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/rtm_connect.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "search_messages": {
+            "main": "./lib/actions/search_messages.js",
+            "title": "search_messages",
+            "description": "Searches for messages matching a query.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/search_messages.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "stars_add": {
+            "main": "./lib/actions/stars_add.js",
+            "title": "stars_add",
+            "description": "Adds a star to an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/stars_add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "stars_list": {
+            "main": "./lib/actions/stars_list.js",
+            "title": "stars_list",
+            "description": "Lists stars for a user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/stars_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "stars_remove": {
+            "main": "./lib/actions/stars_remove.js",
+            "title": "stars_remove",
+            "description": "Removes a star from an item.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/stars_remove.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "team_accessLogs": {
+            "main": "./lib/actions/team_accessLogs.js",
+            "title": "team_accessLogs",
+            "description": "Gets the access logs for the current team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/team_accessLogs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "team_billableInfo": {
+            "main": "./lib/actions/team_billableInfo.js",
+            "title": "team_billableInfo",
+            "description": "Gets billable users information for the current team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/team_billableInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "team_info": {
+            "main": "./lib/actions/team_info.js",
+            "title": "team_info",
+            "description": "Gets information about the current team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/team_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "team_integrationLogs": {
+            "main": "./lib/actions/team_integrationLogs.js",
+            "title": "team_integrationLogs",
+            "description": "Gets the integration logs for the current team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/team_integrationLogs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "team_profile_get": {
+            "main": "./lib/actions/team_profile_get.js",
+            "title": "team_profile_get",
+            "description": "Retrieve a team's profile.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/team_profile_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_create": {
+            "main": "./lib/actions/usergroups_create.js",
+            "title": "usergroups_create",
+            "description": "Create a User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_disable": {
+            "main": "./lib/actions/usergroups_disable.js",
+            "title": "usergroups_disable",
+            "description": "Disable an existing User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_disable.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_enable": {
+            "main": "./lib/actions/usergroups_enable.js",
+            "title": "usergroups_enable",
+            "description": "Enable a User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_enable.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_list": {
+            "main": "./lib/actions/usergroups_list.js",
+            "title": "usergroups_list",
+            "description": "List all User Groups for a team",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_update": {
+            "main": "./lib/actions/usergroups_update.js",
+            "title": "usergroups_update",
+            "description": "Update an existing User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_users_list": {
+            "main": "./lib/actions/usergroups_users_list.js",
+            "title": "usergroups_users_list",
+            "description": "List all users in a User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_users_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "usergroups_users_update": {
+            "main": "./lib/actions/usergroups_users_update.js",
+            "title": "usergroups_users_update",
+            "description": "Update the list of users for a User Group",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/usergroups_users_update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_conversations": {
+            "main": "./lib/actions/users_conversations.js",
+            "title": "users_conversations",
+            "description": "List conversations the calling user may access.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_conversations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_deletePhoto": {
+            "main": "./lib/actions/users_deletePhoto.js",
+            "title": "users_deletePhoto",
+            "description": "Delete the user profile photo",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_deletePhoto.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_getPresence": {
+            "main": "./lib/actions/users_getPresence.js",
+            "title": "users_getPresence",
+            "description": "Gets user presence information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_getPresence.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_identity": {
+            "main": "./lib/actions/users_identity.js",
+            "title": "users_identity",
+            "description": "Get a user's identity.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_identity.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_info": {
+            "main": "./lib/actions/users_info.js",
+            "title": "users_info",
+            "description": "Gets information about a user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_info.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_list": {
+            "main": "./lib/actions/users_list.js",
+            "title": "users_list",
+            "description": "Lists all users in a Slack team.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_list.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_lookupByEmail": {
+            "main": "./lib/actions/users_lookupByEmail.js",
+            "title": "users_lookupByEmail",
+            "description": "Find a user with an email address.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_lookupByEmail.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_profile_get": {
+            "main": "./lib/actions/users_profile_get.js",
+            "title": "users_profile_get",
+            "description": "Retrieves a user's profile information.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_profile_get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_profile_set": {
+            "main": "./lib/actions/users_profile_set.js",
+            "title": "users_profile_set",
+            "description": "Set the profile information for a user.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_profile_set.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_setActive": {
+            "main": "./lib/actions/users_setActive.js",
+            "title": "users_setActive",
+            "description": "Marked a user as active. Deprecated and non-functional.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_setActive.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_setPhoto": {
+            "main": "./lib/actions/users_setPhoto.js",
+            "title": "users_setPhoto",
+            "description": "Set the user profile photo",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_setPhoto.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "users_setPresence": {
+            "main": "./lib/actions/users_setPresence.js",
+            "title": "users_setPresence",
+            "description": "Manually sets user presence.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/users_setPresence.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "include_num_members": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "include_locale": {
+            "type": "boolean"
+        }
+    }
+}

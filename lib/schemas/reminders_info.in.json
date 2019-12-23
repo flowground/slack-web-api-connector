@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "reminder": {
+            "type": "string"
+        }
+    }
+}

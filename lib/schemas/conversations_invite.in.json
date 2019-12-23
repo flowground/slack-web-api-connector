@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "description": "A comma separated list of user IDs. Up to 30 users may be listed.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "The ID of the public or private channel to invite user(s) to.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

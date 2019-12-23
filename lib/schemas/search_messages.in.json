@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "sort_dir": {
+            "type": "string"
+        },
+        "query": {
+            "type": "string"
+        },
+        "sort": {
+            "type": "string"
+        },
+        "count": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
+        },
+        "highlight": {
+            "type": "boolean"
+        },
+        "page": {
+            "type": "string"
+        }
+    }
+}

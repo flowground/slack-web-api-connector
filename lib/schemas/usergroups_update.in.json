@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "handle": {
+                    "description": "A mention handle. Must be unique among channels, users and User Groups.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A short description of the User Group.",
+                    "type": "string"
+                },
+                "channels": {
+                    "description": "A comma separated string of encoded channel IDs for which the User Group uses as a default.",
+                    "type": "string"
+                },
+                "include_count": {
+                    "description": "Include the number of users in the User Group.",
+                    "type": "boolean"
+                },
+                "usergroup": {
+                    "description": "The encoded ID of the User Group to update.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A name for the User Group. Must be unique among User Groups.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "count": {
+            "type": "integer"
+        },
+        "unreads": {
+            "type": "boolean"
+        },
+        "inclusive": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        },
+        "oldest": {
+            "type": "number"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "latest": {
+            "type": "number"
+        }
+    }
+}

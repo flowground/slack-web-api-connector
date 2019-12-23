@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "presence_sub": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        },
+        "batch_presence_aware": {
+            "type": "boolean"
+        }
+    }
+}

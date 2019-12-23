@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "description": "User to remove from private channel.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Private channel to remove user from.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

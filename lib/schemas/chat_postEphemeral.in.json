@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "thread_ts": {
+                    "description": "Provide another message's `ts` value to post this message in a thread. Avoid using a reply's `ts` value; use its parent's value instead. Ephemeral messages in threads are only shown if there is already an active thread.",
+                    "type": "number"
+                },
+                "blocks": {
+                    "description": "A JSON-based array of structured blocks, presented as a URL-encoded string.",
+                    "type": "string"
+                },
+                "attachments": {
+                    "description": "A JSON-based array of structured attachments, presented as a URL-encoded string.",
+                    "type": "string"
+                },
+                "as_user": {
+                    "description": "Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false.",
+                    "type": "boolean"
+                },
+                "parse": {
+                    "description": "Change how messages are treated. Defaults to `none`. See [below](#formatting).",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead.",
+                    "type": "string"
+                },
+                "user": {
+                    "description": "`id` of the user who will receive the ephemeral message. The user should be in the channel specified by the `channel` argument.",
+                    "type": "string"
+                },
+                "link_names": {
+                    "description": "Find and link channel names and usernames.",
+                    "type": "boolean"
+                },
+                "channel": {
+                    "description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

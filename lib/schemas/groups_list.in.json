@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "cursor": {
+            "type": "string"
+        },
+        "exclude_members": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        },
+        "exclude_archived": {
+            "type": "boolean"
+        },
+        "limit": {
+            "type": "integer"
+        }
+    }
+}

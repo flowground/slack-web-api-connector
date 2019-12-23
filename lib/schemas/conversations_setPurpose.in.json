@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "purpose": {
+                    "description": "A new, specialer purpose",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Conversation to set the purpose of",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

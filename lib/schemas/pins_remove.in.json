@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "file_comment": {
+                    "description": "File comment to un-pin.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Timestamp of the message to un-pin.",
+                    "type": "number"
+                },
+                "file": {
+                    "description": "File to un-pin.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel where the item is pinned to.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

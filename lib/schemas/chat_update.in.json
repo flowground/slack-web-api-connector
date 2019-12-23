@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "blocks": {
+                    "description": "A JSON-based array of structured blocks, presented as a URL-encoded string.",
+                    "type": "string"
+                },
+                "attachments": {
+                    "description": "A JSON-based array of structured attachments, presented as a URL-encoded string. This field is required when not presenting `text`.",
+                    "type": "string"
+                },
+                "text": {
+                    "description": "New text for the message, using the [default formatting rules](/docs/formatting). It's not required when presenting `attachments`.",
+                    "type": "string"
+                },
+                "ts": {
+                    "description": "Timestamp of the message to be updated.",
+                    "type": "number"
+                },
+                "parse": {
+                    "description": "Change how messages are treated. Defaults to `client`, unlike `chat.postMessage`. See [below](#formatting).",
+                    "type": "string"
+                },
+                "as_user": {
+                    "description": "Pass true to update the message as the authed user. [Bot users](/bot-users) in this context are considered authed users.",
+                    "type": "boolean"
+                },
+                "link_names": {
+                    "description": "Find and link channel names and usernames. Defaults to `none`. See [below](#formatting).",
+                    "type": "boolean"
+                },
+                "channel": {
+                    "description": "Channel containing the message to be updated.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "thread_ts": {
+                    "description": "Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead.",
+                    "type": "number"
+                },
+                "blocks": {
+                    "description": "A JSON-based array of structured blocks, presented as a URL-encoded string.",
+                    "type": "string"
+                },
+                "attachments": {
+                    "description": "A JSON-based array of structured attachments, presented as a URL-encoded string.",
+                    "type": "string"
+                },
+                "unfurl_links": {
+                    "description": "Pass true to enable unfurling of primarily text-based content.",
+                    "type": "boolean"
+                },
+                "text": {
+                    "description": "Text of the message to send. See below for an explanation of [formatting](#formatting). This field is usually required, unless you're providing only `attachments` instead. Provide no more than 40,000 characters or [risk truncation](/changelog/2018-04-truncating-really-long-messages).",
+                    "type": "string"
+                },
+                "link_names": {
+                    "description": "Find and link channel names and usernames.",
+                    "type": "boolean"
+                },
+                "unfurl_media": {
+                    "description": "Pass false to disable unfurling of media content.",
+                    "type": "boolean"
+                },
+                "parse": {
+                    "description": "Change how messages are treated. Defaults to `none`. See [below](#formatting).",
+                    "type": "string"
+                },
+                "as_user": {
+                    "description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below.",
+                    "type": "boolean"
+                },
+                "post_at": {
+                    "description": "Unix EPOCH timestamp of time in future to send the message.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details.",
+                    "type": "string"
+                },
+                "reply_broadcast": {
+                    "description": "Used in conjunction with `thread_ts` and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to `false`.",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

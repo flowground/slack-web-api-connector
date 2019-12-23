@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "count": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "ts_to": {
+            "type": "number"
+        },
+        "ts_from": {
+            "type": "number"
+        },
+        "token": {
+            "type": "string"
+        },
+        "user": {
+            "type": "string"
+        },
+        "page": {
+            "type": "string"
+        },
+        "types": {
+            "type": "string"
+        }
+    }
+}

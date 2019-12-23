@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "topic": {
+                    "description": "The new topic",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Private channel to set the topic of",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

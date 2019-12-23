@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "channel": {
+                    "description": "Private channel to leave",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

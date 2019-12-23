@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "reminder": {
+                    "description": "The ID of the reminder to be marked as complete",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

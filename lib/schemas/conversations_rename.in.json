@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "New name for conversation.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "ID of conversation to rename",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "validate": {
+                    "description": "Whether to return errors on invalid channel name instead of modifying it to meet the specified criteria.",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "New name for private channel.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Private channel to rename",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

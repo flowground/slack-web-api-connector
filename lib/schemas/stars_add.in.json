@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "file_comment": {
+                    "description": "File comment to add star to.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Timestamp of the message to add star to.",
+                    "type": "number"
+                },
+                "channel": {
+                    "description": "Channel to add star to, or channel where the message to add star to was posted (used with `timestamp`).",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "File to add star to.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

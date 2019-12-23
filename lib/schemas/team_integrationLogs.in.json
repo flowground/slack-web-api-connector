@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "count": {
+            "type": "string"
+        },
+        "change_type": {
+            "type": "string"
+        },
+        "app_id": {
+            "type": "integer"
+        },
+        "token": {
+            "type": "string"
+        },
+        "user": {
+            "type": "string"
+        },
+        "service_id": {
+            "type": "integer"
+        },
+        "page": {
+            "type": "string"
+        }
+    }
+}

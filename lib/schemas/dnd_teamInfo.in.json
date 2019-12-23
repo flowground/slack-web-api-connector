@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "users": {
+            "type": "string"
+        }
+    }
+}

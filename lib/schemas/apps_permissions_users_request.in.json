@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "scopes": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
+        },
+        "user": {
+            "type": "string"
+        },
+        "trigger_id": {
+            "type": "string"
+        }
+    }
+}

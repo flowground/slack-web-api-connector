@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "inclusive": {
+            "type": "boolean"
+        },
+        "ts": {
+            "type": "number"
+        },
+        "cursor": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "oldest": {
+            "type": "number"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "latest": {
+            "type": "number"
+        }
+    }
+}

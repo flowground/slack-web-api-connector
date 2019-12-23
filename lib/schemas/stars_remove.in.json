@@ -1,0 +1,29 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "file_comment": {
+                    "description": "File comment to remove star from.",
+                    "type": "string"
+                },
+                "timestamp": {
+                    "description": "Timestamp of the message to remove star from.",
+                    "type": "number"
+                },
+                "channel": {
+                    "description": "Channel to remove star from, or channel where the message to remove star from was posted (used with `timestamp`).",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "File to remove star from.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "thread_ts": {
+            "type": "number"
+        },
+        "token": {
+            "type": "string"
+        },
+        "channel": {
+            "type": "string"
+        }
+    }
+}

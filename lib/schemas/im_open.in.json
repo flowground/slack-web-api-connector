@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "return_im": {
+                    "description": "Boolean, indicates you want the full IM channel definition in the response.",
+                    "type": "boolean"
+                },
+                "user": {
+                    "description": "User to open a direct message channel with.",
+                    "type": "string"
+                },
+                "include_locale": {
+                    "description": "Set this to `true` to receive the locale for this im. Defaults to `false`",
+                    "type": "boolean"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "client_secret": {
+            "type": "string"
+        },
+        "code": {
+            "type": "string"
+        },
+        "single_channel": {
+            "type": "boolean"
+        },
+        "client_id": {
+            "type": "string"
+        },
+        "redirect_uri": {
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "image": {
+                    "description": "File contents via `multipart/form-data`.",
+                    "type": "string"
+                },
+                "crop_w": {
+                    "description": "Width/height of crop box (always square)",
+                    "type": "integer"
+                },
+                "token": {
+                    "description": "Authentication token. Requires scope: `users.profile:write`",
+                    "type": "string"
+                },
+                "crop_y": {
+                    "description": "Y coordinate of top-left corner of crop box",
+                    "type": "integer"
+                },
+                "crop_x": {
+                    "description": "X coordinate of top-left corner of crop box",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

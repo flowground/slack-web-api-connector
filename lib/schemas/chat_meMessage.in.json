@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "text": {
+                    "description": "Text of the message to send.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "cursor": {
+            "type": "string"
+        },
+        "token": {
+            "type": "string"
+        },
+        "limit": {
+            "type": "integer"
+        },
+        "oldest": {
+            "type": "number"
+        },
+        "channel": {
+            "type": "string"
+        },
+        "latest": {
+            "type": "number"
+        }
+    }
+}

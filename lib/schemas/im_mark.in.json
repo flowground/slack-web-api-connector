@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "channel": {
+                    "description": "Direct message channel to set reading cursor in.",
+                    "type": "string"
+                },
+                "ts": {
+                    "description": "Timestamp of the most recently seen message.",
+                    "type": "number"
+                }
+            }
+        }
+    }
+}

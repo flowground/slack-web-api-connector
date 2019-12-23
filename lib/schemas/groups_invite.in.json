@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "user": {
+                    "description": "User to invite.",
+                    "type": "string"
+                },
+                "channel": {
+                    "description": "Private channel to invite user to.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

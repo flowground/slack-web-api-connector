@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "description": "The comment to delete.",
+                    "type": "string"
+                },
+                "file": {
+                    "description": "File to delete a comment from.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

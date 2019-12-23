@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "include_users": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        },
+        "include_count": {
+            "type": "boolean"
+        },
+        "include_disabled": {
+            "type": "boolean"
+        }
+    }
+}

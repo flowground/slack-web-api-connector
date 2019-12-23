@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "token": {
+            "type": "string"
+        },
+        "requestBody": {
+            "type": "object",
+            "properties": {
+                "as_user": {
+                    "description": "Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope.",
+                    "type": "boolean"
+                },
+                "ts": {
+                    "description": "Timestamp of the message to be deleted.",
+                    "type": "number"
+                },
+                "channel": {
+                    "description": "Channel containing the message to be deleted.",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

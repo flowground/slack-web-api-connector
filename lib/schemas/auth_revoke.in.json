@@ -1,0 +1,11 @@
+{
+    "type": "object",
+    "properties": {
+        "test": {
+            "type": "boolean"
+        },
+        "token": {
+            "type": "string"
+        }
+    }
+}
